@@ -2,6 +2,7 @@
 Django admin customization.
 """
 
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
@@ -16,7 +17,7 @@ class UserAdmin(BaseUserAdmin):
     list_display = ['email', 'name']
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal Info'), {'fields': ('name',)}),
+        (_('Personal Info'), {'fields': ('name', 'passage_id')}),
         (
             _('Permissions'),
             {
@@ -52,3 +53,7 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.User, UserAdmin)
+admin.site.register(models.Categoria)
+admin.site.register(models.Editora)
+admin.site.register(models.Livro)
+admin.site.register(models.Autor)
